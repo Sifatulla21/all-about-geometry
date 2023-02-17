@@ -19,6 +19,28 @@ function validateInput(id1, id2, id3,id4){
         document.getElementById(id4).style.display = 'none';
     }
 }
+// Random background Color
+function randomColor() {
+    let color = [];
+    for (let i = 0; i < 3; i++) {
+      color.push(Math.floor(Math.random() * 256));
+    }
+    return 'rgb(' + color.join(', ') + ')';
+  } 
+//   Add background color on card
+  function addBgColorOnHover(id){
+        document.addEventListener("mouseover", function(){
+        document.getElementById(id).style.backgroundColor = randomColor();
+        
+      });
+  }
+  addBgColorOnHover('triangle');
+  addBgColorOnHover('rectangle');
+  addBgColorOnHover('parallelogram');
+  addBgColorOnHover('rhombus');
+  addBgColorOnHover('pentagon');
+  addBgColorOnHover('ellipse');
+
 // Calculate Triangle
 function triangleCalculate(){
     const takeTriBase = document.getElementById('triBase').value;
@@ -75,6 +97,7 @@ document.getElementById('calculateTriangle').addEventListener('click', function(
     validateInput('triBase', 'triHeight','invTriangle', 'triangleShowHide');
     clearInputField('triBase');
     clearInputField('triHeight');
+    addBgColorOnHover('triangle');
 
 });
 // Rectangle Calculate Button
@@ -85,6 +108,7 @@ document.getElementById('calculateRectangle').addEventListener('click', function
     validateInput('recWidth', 'recLength','invRectangle','rectangleShowHide');
     clearInputField('recWidth');
     clearInputField('recLength');
+    
 
 });
 // Parallelogram Calculate Button
@@ -127,3 +151,6 @@ document.getElementById('calculateEllipse').addEventListener('click', function()
     clearInputField('b');
 
 });
+
+
+  

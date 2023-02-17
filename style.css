@@ -2,9 +2,8 @@
 .cWidth{
     width: 100%;
 }
-.cWidth:hover{
-    background-color: rgb(<?=rand(0,255)?>,<?=rand(0,255)?>,<?=rand(0,255)?>);
-}
+
+
 /* Calculate button */
 .cButton{
     width: 80%;
