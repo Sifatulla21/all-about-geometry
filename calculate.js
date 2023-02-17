@@ -2,6 +2,23 @@
 function clearInputField(id){
     document.getElementById(id).value = " ";
 }
+// Display Block
+function displayMessage(id){
+    document.getElementById(id).style.display = 'block';
+
+}
+// Validation
+function validateInput(id1, id2, id3,id4){
+    let firstInp = document.getElementById(id1).value;
+    let secondInp = document.getElementById(id2).value;
+    if(firstInp>0 && secondInp>0){
+        document.getElementById(id3).style.display = 'none';
+    }
+    else{
+        document.getElementById(id3).style.display = 'block';
+        document.getElementById(id4).style.display = 'none';
+    }
+}
 // Calculate Triangle
 function triangleCalculate(){
     const takeTriBase = document.getElementById('triBase').value;
@@ -54,7 +71,8 @@ function ellipseCalculate(){
 document.getElementById('calculateTriangle').addEventListener('click', function(){
 
     triangleCalculate();
-    document.getElementById('triangleShowHide').style.display = 'block';
+    displayMessage('triangleShowHide');
+    validateInput('triBase', 'triHeight','invTriangle', 'triangleShowHide');
     clearInputField('triBase');
     clearInputField('triHeight');
 
@@ -63,7 +81,8 @@ document.getElementById('calculateTriangle').addEventListener('click', function(
 document.getElementById('calculateRectangle').addEventListener('click', function(){
 
     rectangleCalculate();
-    document.getElementById('rectangleShowHide').style.display = 'block';
+    displayMessage('rectangleShowHide');
+    validateInput('recWidth', 'recLength','invRectangle','rectangleShowHide');
     clearInputField('recWidth');
     clearInputField('recLength');
 
@@ -72,7 +91,8 @@ document.getElementById('calculateRectangle').addEventListener('click', function
 document.getElementById('calculateParallelogram').addEventListener('click', function(){
 
     parallelogramCalculate();
-    document.getElementById('parallelogramShowHide').style.display = 'block';
+    displayMessage('parallelogramShowHide');
+    validateInput('parBase', 'parHeight', 'invParallelogram','parallelogramShowHide');
     clearInputField('parBase');
     clearInputField('parHeight');
 
@@ -81,7 +101,8 @@ document.getElementById('calculateParallelogram').addEventListener('click', func
 document.getElementById('calculateRhombus').addEventListener('click', function(){
 
     rhombusCalculate();
-    document.getElementById('rhombusShowHide').style.display = 'block';
+    displayMessage('rhombusShowHide');
+    validateInput('rhomDio1', 'rhomDio2','invRhombus','rhombusShowHide');
     clearInputField('rhomDio1');
     clearInputField('rhomDio2');
 
@@ -90,7 +111,8 @@ document.getElementById('calculateRhombus').addEventListener('click', function()
 document.getElementById('calculatePentagon').addEventListener('click', function(){
 
     pentagonCalculate();
-    document.getElementById('pentagonShowHide').style.display = 'block';
+    displayMessage('pentagonShowHide');
+    validateInput('penP', 'penB','invPentagon','pentagonShowHide');
     clearInputField('penP');
     clearInputField('penB');
 
@@ -99,7 +121,8 @@ document.getElementById('calculatePentagon').addEventListener('click', function(
 document.getElementById('calculateEllipse').addEventListener('click', function(){
 
     ellipseCalculate();
-    document.getElementById('ellipseShowHide').style.display = 'block';
+    displayMessage('ellipseShowHide');
+    validateInput('a', 'b','invEllipse','ellipseShowHide');
     clearInputField('a');
     clearInputField('b');
 

@@ -1,17 +1,45 @@
+/* Card Width */
 .cWidth{
     width: 100%;
 }
+.cWidth:hover{
+    background-color: rgb(<?=rand(0,255)?>,<?=rand(0,255)?>,<?=rand(0,255)?>);
+}
+/* Calculate button */
 .cButton{
     width: 80%;
     height: 56px;
     margin-left: 20px;
 }
-.aCal{
+/* Area calculator part */
+.areaCalculator{
     width: 400px;
     height: 600px;
     margin-right: 20px;
     border: 1px solid black;
 }
+
 .showHide{
     display: none;
+}
+.errorMessage{
+    display: none;
+    color: red;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 688px){
+
+    .halfWidth{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .areaCalculator{
+        width: 110%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
