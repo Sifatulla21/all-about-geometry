@@ -1,0 +1,13 @@
+.cWidth{
+    width: 437px;
+}
+.cButton{
+    width: 350px;
+    height: 56px;
+    margin-left: 20px;
+}
+.aCal{
+    width: 600px;
+    height: auto;
+    border: 1px solid black;
+}
