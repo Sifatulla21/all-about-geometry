@@ -6,7 +6,7 @@ function clearInputField(id){
 function triangleCalculate(){
     const takeTriBase = document.getElementById('triBase').value;
     const takeTriHeight = document.getElementById('triHeight').value;
-    const triangleArea = 0.5 * takeTriBase * takeTriHeight;
+    const triangleArea = (0.5 * takeTriBase * takeTriHeight).toFixed(2);
     const setTriValues = document.getElementById('triangleAreaShow');
     setTriValues.innerText = triangleArea;
 }
@@ -14,7 +14,7 @@ function triangleCalculate(){
 function rectangleCalculate(){
     const takeRecWidth = document.getElementById('recWidth').value;
     const takeRecLength = document.getElementById('recLength').value;
-    const rectangleArea = takeRecWidth * takeRecLength;
+    const rectangleArea = (takeRecWidth * takeRecLength).toFixed(2);
     const setRecValues = document.getElementById('rectangleAreaShow');
     setRecValues.innerText = rectangleArea;
 }
@@ -22,7 +22,7 @@ function rectangleCalculate(){
 function parallelogramCalculate(){
     const takeParWidth = document.getElementById('parBase').value;
     const takeParLength = document.getElementById('parHeight').value;
-    const parallelogramArea = takeParWidth * takeParLength;
+    const parallelogramArea = (takeParWidth * takeParLength).toFixed(2);
     const setParValues = document.getElementById('parallelogramAreaShow');
     setParValues.innerText = parallelogramArea;
 }
@@ -30,17 +30,17 @@ function parallelogramCalculate(){
 function rhombusCalculate(){
     const takeRhomDio1 = document.getElementById('rhomDio1').value;
     const takeRhomDio2 = document.getElementById('rhomDio2').value;
-    const rhombusArea = 0.5 * takeRhomDio1 * takeRhomDio2;
+    const rhombusArea = (0.5 * takeRhomDio1 * takeRhomDio2).toFixed(2);
     const setRhomValues = document.getElementById('rhombusAreaShow');
     setRhomValues.innerText = rhombusArea;
 }
-// Calculate Rectangle
-function rectangleCalculate(){
-    const takeRecWidth = document.getElementById('recWidth').value;
-    const takeRecLength = document.getElementById('recLength').value;
-    const rectangleArea = takeRecWidth * takeRecLength;
-    const setRecValues = document.getElementById('rectangleAreaShow');
-    setRecValues.innerText = rectangleArea;
+// Calculate Pentagon
+function pentagonCalculate(){
+    const takePenP = document.getElementById('penP').value;
+    const takePenB = document.getElementById('penB').value;
+    const penArea = (0.5* takePenP * takePenB).toFixed(2);
+    const setPenValues = document.getElementById('pentagonAreaShow');
+    setPenValues.innerText = penArea;
 }
 // Calculate Parallelogram
 function parallelogramCalculate(){
@@ -86,13 +86,13 @@ document.getElementById('calculateRhombus').addEventListener('click', function()
     clearInputField('rhomDio2');
 
 });
-// Rectangle Calculate Button
-document.getElementById('calculateRectangle').addEventListener('click', function(){
+// Pentagon Calculate Button
+document.getElementById('calculatePentagon').addEventListener('click', function(){
 
-    rectangleCalculate();
-    document.getElementById('rectangleShowHide').style.display = 'block';
-    clearInputField('recWidth');
-    clearInputField('recLength');
+    pentagonCalculate();
+    document.getElementById('pentagonShowHide').style.display = 'block';
+    clearInputField('penP');
+    clearInputField('penB');
 
 });
 // Parallelogram Calculate Button

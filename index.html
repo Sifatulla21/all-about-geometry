@@ -31,7 +31,7 @@
                     <img src="images/triangle.png" class="card-img-top h-50 w-50 mx-auto pt-5" alt="...">
                     <div class="card-body">
                       <h5 class="card-title text-center">Triangle</h5>
-                      <p class="card-text text-center">Area (A) = .5 * b *h</p>
+                      <p class="card-text text-center">Area (A) = 0.5 * b *h</p>
                       <div class="d-flex">
                           <input type="text" class="w-25 ms-5 me-3" id="triBase">
                           <p>cm</p>
@@ -95,14 +95,14 @@
                     <img src="images/pentagon.png" class="card-img-top h-50 w-50 mx-auto pt-5" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">Pentagon</h5>
-                        <p class="card-text text-center">Area (A) = .5 * p * b</p>
+                        <p class="card-text text-center">Area (A) = 0.5 * p * b</p>
                         <div class="d-flex">
-                            <input type="text" class="w-25 ms-5 me-3">
+                            <input type="text" id="penP" class="w-25 ms-5 me-3">
                             <p>cm</p>
-                            <input type="text" name="" id="" class="w-25 ms-3 me-3">
+                            <input type="text" name="" id="penB" class="w-25 ms-3 me-3">
                             <p>cm</p>
                         </div>
-                        <button class="btn btn-primary btn-lg mt-5 cButton" type="button">Calculate</button>
+                        <button id="calculatePentagon" class="btn btn-primary btn-lg mt-5 cButton" type="button">Calculate</button>
                       </div>
                   </div>
                 </div>
@@ -190,32 +190,32 @@
                     </div>
                 </div>
             </div>
-            <div class="showHide pt-5"id="triangleShowHide">
+            <div class="showHide pt-5"id="pentagonShowHide">
                 <div class="d-flex">
                     <div>
-                        <p class="ms-4" id="sNo">1</p>
+                        <p class="ms-4" id="sNo">5</p>
                     </div>
                     <div>
-                        <p class="ms-4 pe-4">Triangle</p>
+                        <p class="ms-4 pe-4">Pentagon</p>
                     </div>
                     <div>
-                        <p><span  id="triangleAreaShow" ></span>cm<sup>2</sup></p>
+                        <p><span  id="pentagonAreaShow" ></span>cm<sup>2</sup></p>
                     </div>
                     <div>
                         <button id="" class="btn btn-primary ms-4" type="button">CM <sup>2</sup> to M <sup>2</sup></button>
                     </div>
                 </div>
             </div>
-            <div class="showHide pt-5"id="triangleShowHide">
+            <div class="showHide pt-5"id="ellipseShowHide">
                 <div class="d-flex">
                     <div>
-                        <p class="ms-4" id="sNo">1</p>
+                        <p class="ms-4" id="sNo">6</p>
                     </div>
                     <div>
-                        <p class="ms-4 pe-4">Triangle</p>
+                        <p class="ms-4 pe-4">Ellipse</p>
                     </div>
                     <div>
-                        <p><span  id="triangleAreaShow" ></span>cm<sup>2</sup></p>
+                        <p><span  id="ellipseAreaShow" ></span>cm<sup>2</sup></p>
                     </div>
                     <div>
                         <button id="" class="btn btn-primary ms-4" type="button">CM <sup>2</sup> to M <sup>2</sup></button>
