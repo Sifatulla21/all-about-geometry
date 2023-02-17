@@ -1,3 +1,4 @@
+let serial = 1;
 // Clear Input Field
 function clearInputField(id){
     document.getElementById(id).value = " ";
@@ -34,20 +35,28 @@ function randomColor() {
         
       });
   }
-  addBgColorOnHover('triangle');
-  addBgColorOnHover('rectangle');
-  addBgColorOnHover('parallelogram');
-  addBgColorOnHover('rhombus');
-  addBgColorOnHover('pentagon');
-  addBgColorOnHover('ellipse');
+//   addBgColorOnHover('triangle');
+//   addBgColorOnHover('rectangle');
+//   addBgColorOnHover('parallelogram');
+//   addBgColorOnHover('rhombus');
+//   addBgColorOnHover('pentagon');
+//   addBgColorOnHover('ellipse');
 
 // Calculate Triangle
 function triangleCalculate(){
     const takeTriBase = document.getElementById('triBase').value;
     const takeTriHeight = document.getElementById('triHeight').value;
     const triangleArea = (0.5 * takeTriBase * takeTriHeight).toFixed(2);
-    const setTriValues = document.getElementById('triangleAreaShow');
-    setTriValues.innerText = triangleArea;
+    let container = document.getElementById("table-container");
+    let tr = document.createElement("tr");
+    tr.innerHTML = `
+    <td>${serial}</td>
+    <td>Triangle</td>
+    <td><span  id="triangleAreaShow" >${triangleArea}</span>cm<sup>2</sup></td>
+    <td><button id="" class="btn btn-primary ms-4" type="button">CM <sup>2</sup> to M <sup>2</sup></button></td>
+
+    `;
+    container.appendChild(tr);
 }
 // Calculate Rectangle
 function rectangleCalculate(){
@@ -91,13 +100,13 @@ function ellipseCalculate(){
 }
 // Triangle Calculate Button
 document.getElementById('calculateTriangle').addEventListener('click', function(){
-
+    validateInput('triBase', 'triHeight','invTriangle', 'triangleShowHide');
     triangleCalculate();
+    serial = serial+1;
     displayMessage('triangleShowHide');
     validateInput('triBase', 'triHeight','invTriangle', 'triangleShowHide');
     clearInputField('triBase');
     clearInputField('triHeight');
-    addBgColorOnHover('triangle');
 
 });
 // Rectangle Calculate Button
@@ -154,3 +163,7 @@ document.getElementById('calculateEllipse').addEventListener('click', function()
 
 
   
+function tData(){
+
+
+}
