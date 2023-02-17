@@ -42,13 +42,13 @@ function pentagonCalculate(){
     const setPenValues = document.getElementById('pentagonAreaShow');
     setPenValues.innerText = penArea;
 }
-// Calculate Parallelogram
-function parallelogramCalculate(){
-    const takeParWidth = document.getElementById('parBase').value;
-    const takeParLength = document.getElementById('parHeight').value;
-    const parallelogramArea = takeParWidth * takeParLength;
-    const setParValues = document.getElementById('parallelogramAreaShow');
-    setParValues.innerText = parallelogramArea;
+// Calculate Ellipse
+function ellipseCalculate(){
+    const takeEllA = document.getElementById('a').value;
+    const takeEllB = document.getElementById('b').value;
+    const ellipseArea = (3.1416* takeEllA * takeEllB).toFixed(2);
+    const setEllValues = document.getElementById('ellipseAreaShow');
+    setEllValues.innerText = ellipseArea;
 }
 // Triangle Calculate Button
 document.getElementById('calculateTriangle').addEventListener('click', function(){
@@ -95,12 +95,12 @@ document.getElementById('calculatePentagon').addEventListener('click', function(
     clearInputField('penB');
 
 });
-// Parallelogram Calculate Button
-document.getElementById('calculateParallelogram').addEventListener('click', function(){
+// Ellipse Calculate Button
+document.getElementById('calculateEllipse').addEventListener('click', function(){
 
-    parallelogramCalculate();
-    document.getElementById('parallelogramShowHide').style.display = 'block';
-    clearInputField('parBase');
-    clearInputField('parHeight');
+    ellipseCalculate();
+    document.getElementById('ellipseShowHide').style.display = 'block';
+    clearInputField('a');
+    clearInputField('b');
 
 });
