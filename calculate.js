@@ -27,11 +27,13 @@ function randomColor() {
   } 
 //   Add background color on card
   function addBgColorOnHover(id){
-        document.addEventListener("mouseover", function(){
-        document.getElementById(id).style.backgroundColor = randomColor();
-      });
-  }
-//   Set Serial No
+        
+        document.getElementById(id).addEventListener('mouseover', function(){
+            document.getElementById(id).style.backgroundColor = randomColor();
+        });
+      }
+  
+//  Set Serial No
 function setSerialNo(id){
     document.getElementById(id).innerHTML= `${serial}`;
 }
