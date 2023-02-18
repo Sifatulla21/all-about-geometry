@@ -1,21 +1,29 @@
 let serial = 1;
-// Clear Input Field
-function clearInputField(id){
-    document.getElementById(id).value = " ";
-}
-// Validation
-function validateInput(id1, id2, id3,id4){
-    let firstInp = document.getElementById(id1).value;
-    let secondInp = document.getElementById(id2).value;
-    if(firstInp>0 && secondInp>0){
-        serial = serial+1;
+// Set Table data
+function setTableData(id1,id2,id3,inp1,inp2){
+    let container = document.getElementById('tableContainer');
+    let tr = document.createElement('tr');
+    tr.innerHTML = `
+    
+    <td class="ps-3">${serial}</td>
+    <td class="ps-3">${id1}</td>
+    <td class="ps-3">${id2} cm<sup>2</sup></td>
+    <td class="ps-3"><button class="btn btn-primary ms-4" type="button">CM <sup>2</sup> to M <sup>2</sup></button>
+
+    `;
+    if(inp1>0 && inp2>0){
+        serial=serial+1;
+        container.appendChild(tr);
         document.getElementById(id3).style.display = 'none';
-        document.getElementById(id4).style.display = 'block';
     }
     else{
         document.getElementById(id3).style.display = 'block';
-        document.getElementById(id4).style.display = 'none';
     }
+
+}
+// Clear Input Field
+function clearInputField(id){
+    document.getElementById(id).value = " ";
 }
 // Random background Color
 function randomColor() {
@@ -32,12 +40,6 @@ function randomColor() {
             document.getElementById(id).style.backgroundColor = randomColor();
         });
       }
-  
-//  Set Serial No
-function setSerialNo(id){
-    document.getElementById(id).innerHTML= `${serial}`;
-}
-
   addBgColorOnHover('triangle');
   addBgColorOnHover('rectangle');
   addBgColorOnHover('parallelogram');
@@ -47,63 +49,60 @@ function setSerialNo(id){
 
 // Calculate Triangle
 function triangleCalculate(){
+    
     const takeTriBase = document.getElementById('triBase').value;
     const takeTriHeight = document.getElementById('triHeight').value;
+    const takeTriCardTitle = document.getElementById('triTitle').innerText;
     const triangleArea = (0.5 * takeTriBase * takeTriHeight).toFixed(2);
-    const setTriValues = document.getElementById('triangleAreaShow');
-    setTriValues.innerText = triangleArea;
-    setSerialNo('sNo1');
+    setTableData(takeTriCardTitle,triangleArea,"invTriangle",takeTriBase,takeTriHeight);
+    
+
     
 }
 // Calculate Rectangle
 function rectangleCalculate(){
     const takeRecWidth = document.getElementById('recWidth').value;
     const takeRecLength = document.getElementById('recLength').value;
+    const takeRecCardTitle = document.getElementById('rectTitle').innerText;
     const rectangleArea = (takeRecWidth * takeRecLength).toFixed(2);
-    const setRecValues = document.getElementById('rectangleAreaShow');
-    setRecValues.innerText = rectangleArea;
-    setSerialNo('sNo2');
+    setTableData(takeRecCardTitle,rectangleArea,"invRectangle",takeRecWidth,takeRecLength);
 }
 // Calculate Parallelogram
 function parallelogramCalculate(){
     const takeParWidth = document.getElementById('parBase').value;
     const takeParLength = document.getElementById('parHeight').value;
+    const takeParaCardTitle = document.getElementById('paraTitle').innerText;
     const parallelogramArea = (takeParWidth * takeParLength).toFixed(2);
-    const setParValues = document.getElementById('parallelogramAreaShow');
-    setParValues.innerText = parallelogramArea;
-    setSerialNo('sNo3');
+    setTableData(takeParaCardTitle,parallelogramArea,"invParallelogram",takeParWidth,takeParLength);
 }
 // Calculate Rhombus
 function rhombusCalculate(){
     const takeRhomDio1 = document.getElementById('rhomDio1').value;
     const takeRhomDio2 = document.getElementById('rhomDio2').value;
+    const takeRhomCardTitle = document.getElementById('rhomTitle').innerText;
     const rhombusArea = (0.5 * takeRhomDio1 * takeRhomDio2).toFixed(2);
-    const setRhomValues = document.getElementById('rhombusAreaShow');
-    setRhomValues.innerText = rhombusArea;
-    setSerialNo('sNo4');
+    setTableData(takeRhomCardTitle,rhombusArea,"invRhombus",takeRhomDio1,takeRhomDio2);
 }
 // Calculate Pentagon
 function pentagonCalculate(){
     const takePenP = document.getElementById('penP').value;
     const takePenB = document.getElementById('penB').value;
+    const takePentaCardTitle = document.getElementById('pentaTitle').innerText;
     const penArea = (0.5* takePenP * takePenB).toFixed(2);
-    const setPenValues = document.getElementById('pentagonAreaShow');
-    setPenValues.innerText = penArea;
-    setSerialNo('sNo5');
+    setTableData(takePentaCardTitle,penArea,"invPentagon",takePenP,takePenB);
 }
+
 // Calculate Ellipse
 function ellipseCalculate(){
     const takeEllA = document.getElementById('a').value;
     const takeEllB = document.getElementById('b').value;
+    const takeEllipseCardTitle = document.getElementById('ellipseTitle').innerText;
     const ellipseArea = (3.1416* takeEllA * takeEllB).toFixed(2);
-    const setEllValues = document.getElementById('ellipseAreaShow');
-    setEllValues.innerText = ellipseArea;
-    setSerialNo('sNo6');
+    setTableData(takeEllipseCardTitle,ellipseArea,"invEllipse",takeEllA,takeEllB);
 }
 // Triangle Calculate Button
 document.getElementById('calculateTriangle').addEventListener('click', function(){
     triangleCalculate();
-    validateInput('triBase', 'triHeight','invTriangle', 'triangleShowHide');
     clearInputField('triBase');
     clearInputField('triHeight');
 
@@ -112,7 +111,6 @@ document.getElementById('calculateTriangle').addEventListener('click', function(
 document.getElementById('calculateRectangle').addEventListener('click', function(){
 
     rectangleCalculate();
-    validateInput('recWidth', 'recLength','invRectangle','rectangleShowHide');
     clearInputField('recWidth');
     clearInputField('recLength');
     
@@ -122,7 +120,6 @@ document.getElementById('calculateRectangle').addEventListener('click', function
 document.getElementById('calculateParallelogram').addEventListener('click', function(){
 
     parallelogramCalculate();
-    validateInput('parBase', 'parHeight', 'invParallelogram','parallelogramShowHide');
     clearInputField('parBase');
     clearInputField('parHeight');
 
@@ -131,7 +128,6 @@ document.getElementById('calculateParallelogram').addEventListener('click', func
 document.getElementById('calculateRhombus').addEventListener('click', function(){
 
     rhombusCalculate();
-    validateInput('rhomDio1', 'rhomDio2','invRhombus','rhombusShowHide');
     clearInputField('rhomDio1');
     clearInputField('rhomDio2');
 
@@ -140,7 +136,6 @@ document.getElementById('calculateRhombus').addEventListener('click', function()
 document.getElementById('calculatePentagon').addEventListener('click', function(){
 
     pentagonCalculate();
-    validateInput('penP', 'penB','invPentagon','pentagonShowHide');
     clearInputField('penP');
     clearInputField('penB');
 
@@ -149,9 +144,10 @@ document.getElementById('calculatePentagon').addEventListener('click', function(
 document.getElementById('calculateEllipse').addEventListener('click', function(){
 
     ellipseCalculate();
-    validateInput('a', 'b','invEllipse','ellipseShowHide');
     clearInputField('a');
     clearInputField('b');
 
 });
+
+
 
