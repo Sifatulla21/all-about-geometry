@@ -2,7 +2,9 @@
 .cWidth{
     width: 100%;
 }
-
+input{
+    padding-left: 20px;
+}
 #blogButton{
     width: 120px;
     height: 48px;
