@@ -1,4 +1,4 @@
-let serial = 0;
+let serial = 1;
 // Clear Input Field
 function clearInputField(id){
     document.getElementById(id).value = " ";
@@ -29,19 +29,19 @@ function randomColor() {
   function addBgColorOnHover(id){
         document.addEventListener("mouseover", function(){
         document.getElementById(id).style.backgroundColor = randomColor();
-        
       });
   }
 //   Set Serial No
 function setSerialNo(id){
     document.getElementById(id).innerHTML= `${serial}`;
 }
-//   addBgColorOnHover('triangle');
-//   addBgColorOnHover('rectangle');
-//   addBgColorOnHover('parallelogram');
-//   addBgColorOnHover('rhombus');
-//   addBgColorOnHover('pentagon');
-//   addBgColorOnHover('ellipse');
+
+  addBgColorOnHover('triangle');
+  addBgColorOnHover('rectangle');
+  addBgColorOnHover('parallelogram');
+  addBgColorOnHover('rhombus');
+  addBgColorOnHover('pentagon');
+  addBgColorOnHover('ellipse');
 
 // Calculate Triangle
 function triangleCalculate(){
@@ -152,3 +152,4 @@ document.getElementById('calculateEllipse').addEventListener('click', function()
     clearInputField('b');
 
 });
+
